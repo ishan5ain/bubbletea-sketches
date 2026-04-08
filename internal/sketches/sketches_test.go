@@ -15,16 +15,15 @@ func TestGetReturnsRegisteredSketch(t *testing.T) {
 
 func TestNamesIncludesDefaultSketch(t *testing.T) {
 	names := Names()
-	if len(names) != 2 {
-		t.Fatalf("expected 2 sketches, got %d", len(names))
+	if len(names) != 3 {
+		t.Fatalf("expected 3 sketches, got %d", len(names))
 	}
 
-	if names[0] != DefaultName() {
-		t.Fatalf("expected %q, got %q", DefaultName(), names[0])
-	}
-
-	if names[1] != "styled-hello-world" {
-		t.Fatalf("expected %q, got %q", "styled-hello-world", names[1])
+	want := []string{"directory-selector", DefaultName(), "styled-hello-world"}
+	for i := range want {
+		if names[i] != want[i] {
+			t.Fatalf("expected %q at index %d, got %q", want[i], i, names[i])
+		}
 	}
 }
 
@@ -36,5 +35,16 @@ func TestGetReturnsStyledHelloWorld(t *testing.T) {
 
 	if got := factory().View().Content; got == "" {
 		t.Fatal("styled-hello-world returned an empty view")
+	}
+}
+
+func TestGetReturnsDirectorySelector(t *testing.T) {
+	factory, ok := Get("directory-selector")
+	if !ok {
+		t.Fatal("expected directory-selector to be registered")
+	}
+
+	if got := factory().View().Content; got == "" {
+		t.Fatal("directory-selector returned an empty view")
 	}
 }

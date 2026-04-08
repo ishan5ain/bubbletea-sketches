@@ -69,15 +69,15 @@ func (m styledHelloWorldModel) View() tea.View {
 
 	heading := lipgloss.NewStyle().
 		Bold(true).
-		Foreground(lipgloss.Color("#0F172A")).
+		Foreground(lipgloss.Color("#ffffff")).
 		Render(section.name)
 
 	description := lipgloss.NewStyle().
-		Foreground(lipgloss.Color("#334155")).
+		Foreground(lipgloss.Color("#566e90")).
 		Render(section.description)
 
 	help := lipgloss.NewStyle().
-		Foreground(lipgloss.Color("#475569")).
+		Foreground(lipgloss.Color("#df8918")).
 		Render("left/h previous  right/l next  q quit")
 
 	panel := lipgloss.NewStyle().

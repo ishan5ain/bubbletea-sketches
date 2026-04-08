@@ -19,6 +19,7 @@ go run ./cmd/sketchbook hello-world
 ## Sketches
 
 - `hello-world`: minimal Bubble Tea program that renders a greeting and exits on `q` or `ctrl+c`
+- `directory-selector`: terminal-style directory prompt with `tab` autocomplete against the real filesystem
 - `styled-hello-world`: Lip Gloss v2 style explorer with paged examples for color, spacing, borders, alignment, and more
 
 ## Adding a sketch

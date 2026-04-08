@@ -35,6 +35,17 @@ func TestSelectSketchStyledHelloWorld(t *testing.T) {
 	}
 }
 
+func TestSelectSketchDirectorySelector(t *testing.T) {
+	model, err := selectSketch([]string{"directory-selector"})
+	if err != nil {
+		t.Fatalf("select directory-selector sketch: %v", err)
+	}
+
+	if got := model.View().Content; got == "" {
+		t.Fatal("directory-selector sketch returned an empty view")
+	}
+}
+
 func TestSelectSketchRejectsUnknownSketch(t *testing.T) {
 	if _, err := selectSketch([]string{"missing"}); err == nil {
 		t.Fatal("expected an error for an unknown sketch")
