@@ -46,6 +46,17 @@ func TestSelectSketchDirectorySelector(t *testing.T) {
 	}
 }
 
+func TestSelectSketchFlexibleKeyValuePairList(t *testing.T) {
+	model, err := selectSketch([]string{"flexible-key-value-pair-list"})
+	if err != nil {
+		t.Fatalf("select flexible-key-value-pair-list sketch: %v", err)
+	}
+
+	if got := model.View().Content; got == "" {
+		t.Fatal("flexible-key-value-pair-list sketch returned an empty view")
+	}
+}
+
 func TestSelectSketchRejectsUnknownSketch(t *testing.T) {
 	if _, err := selectSketch([]string{"missing"}); err == nil {
 		t.Fatal("expected an error for an unknown sketch")

@@ -11,9 +11,10 @@ type Factory func() tea.Model
 const defaultSketchName = "hello-world"
 
 var registry = map[string]Factory{
-	defaultSketchName:    NewHelloWorld,
-	"directory-selector": NewDirectorySelector,
-	"styled-hello-world": NewStyledHelloWorld,
+	defaultSketchName:              NewHelloWorld,
+	"directory-selector":           NewDirectorySelector,
+	"flexible-key-value-pair-list": NewFlexibleKeyValuePairList,
+	"styled-hello-world":           NewStyledHelloWorld,
 }
 
 func DefaultName() string {

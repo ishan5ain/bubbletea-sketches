@@ -98,7 +98,7 @@ func (m directorySelectorModel) View() tea.View {
 
 	help := lipgloss.NewStyle().
 		Foreground(lipgloss.Color("#F59E0B")).
-		Render("\ntab: autocomplete | backspace: delete | enter: select | q: quit")
+		Render("\ntab autocomplete | backspace delete | enter select | q quit")
 
 	lines := []string{title, subtitle, prompt}
 
@@ -189,7 +189,7 @@ func renderPromptLine(input string, suggestion string) string {
 
 	return lipgloss.JoinHorizontal(
 		lipgloss.Top,
-		promptStyle.Render("> "),
+		promptStyle.Render("cd "),
 		typedStyle.Render(input),
 		ghostStyle.Render(suggestion),
 		cursorStyle.Render(" "),

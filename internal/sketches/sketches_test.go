@@ -15,11 +15,11 @@ func TestGetReturnsRegisteredSketch(t *testing.T) {
 
 func TestNamesIncludesDefaultSketch(t *testing.T) {
 	names := Names()
-	if len(names) != 3 {
-		t.Fatalf("expected 3 sketches, got %d", len(names))
+	if len(names) != 4 {
+		t.Fatalf("expected 4 sketches, got %d", len(names))
 	}
 
-	want := []string{"directory-selector", DefaultName(), "styled-hello-world"}
+	want := []string{"directory-selector", "flexible-key-value-pair-list", DefaultName(), "styled-hello-world"}
 	for i := range want {
 		if names[i] != want[i] {
 			t.Fatalf("expected %q at index %d, got %q", want[i], i, names[i])
@@ -46,5 +46,16 @@ func TestGetReturnsDirectorySelector(t *testing.T) {
 
 	if got := factory().View().Content; got == "" {
 		t.Fatal("directory-selector returned an empty view")
+	}
+}
+
+func TestGetReturnsFlexibleKeyValuePairList(t *testing.T) {
+	factory, ok := Get("flexible-key-value-pair-list")
+	if !ok {
+		t.Fatal("expected flexible-key-value-pair-list to be registered")
+	}
+
+	if got := factory().View().Content; got == "" {
+		t.Fatal("flexible-key-value-pair-list returned an empty view")
 	}
 }
