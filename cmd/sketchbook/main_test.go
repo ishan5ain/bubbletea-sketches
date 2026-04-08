@@ -8,7 +8,7 @@ func TestSelectSketchDefaultsToHelloWorld(t *testing.T) {
 		t.Fatalf("select default sketch: %v", err)
 	}
 
-	if got := model.View(); got == "" {
+	if got := model.View().Content; got == "" {
 		t.Fatal("default sketch returned an empty view")
 	}
 }
@@ -19,8 +19,19 @@ func TestSelectSketchByName(t *testing.T) {
 		t.Fatalf("select named sketch: %v", err)
 	}
 
-	if got := model.View(); got == "" {
+	if got := model.View().Content; got == "" {
 		t.Fatal("named sketch returned an empty view")
+	}
+}
+
+func TestSelectSketchStyledHelloWorld(t *testing.T) {
+	model, err := selectSketch([]string{"styled-hello-world"})
+	if err != nil {
+		t.Fatalf("select styled sketch: %v", err)
+	}
+
+	if got := model.View().Content; got == "" {
+		t.Fatal("styled sketch returned an empty view")
 	}
 }
 

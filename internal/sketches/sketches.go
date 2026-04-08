@@ -3,7 +3,7 @@ package sketches
 import (
 	"sort"
 
-	tea "github.com/charmbracelet/bubbletea"
+	tea "charm.land/bubbletea/v2"
 )
 
 type Factory func() tea.Model
@@ -11,7 +11,8 @@ type Factory func() tea.Model
 const defaultSketchName = "hello-world"
 
 var registry = map[string]Factory{
-	defaultSketchName: NewHelloWorld,
+	defaultSketchName:    NewHelloWorld,
+	"styled-hello-world": NewStyledHelloWorld,
 }
 
 func DefaultName() string {

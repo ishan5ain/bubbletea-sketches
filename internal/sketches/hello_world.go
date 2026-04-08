@@ -1,6 +1,6 @@
 package sketches
 
-import tea "github.com/charmbracelet/bubbletea"
+import tea "charm.land/bubbletea/v2"
 
 type helloWorldModel struct{}
 
@@ -14,7 +14,7 @@ func (m helloWorldModel) Init() tea.Cmd {
 
 func (m helloWorldModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
-	case tea.KeyMsg:
+	case tea.KeyPressMsg:
 		switch msg.String() {
 		case "ctrl+c", "q":
 			return m, tea.Quit
@@ -26,6 +26,6 @@ func (m helloWorldModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	}
 }
 
-func (m helloWorldModel) View() string {
-	return "Hello, World!\n\nPress q to quit.\n"
+func (m helloWorldModel) View() tea.View {
+	return tea.NewView("Hello, World!\n\nPress q to quit.\n")
 }
