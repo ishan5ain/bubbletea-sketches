@@ -1,4 +1,4 @@
-package sketches
+package hello_world
 
 import tea "charm.land/bubbletea/v2"
 

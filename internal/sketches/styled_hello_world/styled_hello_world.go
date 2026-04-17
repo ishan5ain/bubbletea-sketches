@@ -1,4 +1,4 @@
-package sketches
+package styled_hello_world
 
 import (
 	"fmt"

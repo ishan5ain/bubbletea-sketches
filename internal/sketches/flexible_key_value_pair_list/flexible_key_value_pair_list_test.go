@@ -1,4 +1,4 @@
-package sketches
+package flexible_key_value_pair_list
 
 import (
 	"strings"
@@ -241,7 +241,7 @@ func TestFlexibleKeyValuePairListCompletedRequiredBadgeUsesBlue(t *testing.T) {
 	model.recalculate()
 
 	view := model.View().Content
-	want := lipgloss.NewStyle().Foreground(lipgloss.Color("#92b0d2")).Render("required")
+	want := lipgloss.NewStyle().Foreground(lipgloss.Color("#93C5FD")).Render("required")
 	if !strings.Contains(view, want) {
 		t.Fatalf("expected completed required badge style in view, got %q", view)
 	}

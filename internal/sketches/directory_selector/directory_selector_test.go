@@ -1,4 +1,4 @@
-package sketches
+package directory_selector
 
 import (
 	"os"

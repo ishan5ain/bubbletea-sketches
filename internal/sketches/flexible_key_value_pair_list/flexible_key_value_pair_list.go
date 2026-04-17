@@ -1,4 +1,4 @@
-package sketches
+package flexible_key_value_pair_list
 
 import (
 	"encoding/json"
@@ -362,7 +362,6 @@ func (m flexibleKeyValuePairListModel) renderRow(index int) string {
 	rowLine := lipgloss.JoinHorizontal(
 		lipgloss.Top,
 		keyField,
-		// lipgloss.NewStyle().Width(1).Foreground(lipgloss.Color("#64748B")).Render(""),
 		valueField,
 	)
 	if statusBadge != "" {
@@ -402,12 +401,10 @@ func (m flexibleKeyValuePairListModel) renderField(label string, value string, s
 	}
 
 	if locked {
-		// boxStyle = boxStyle.Background(lipgloss.Color("#111827"))
 		valueStyle = valueStyle.Bold(true)
 	}
 	if focused {
 		boxStyle = boxStyle.
-			// Background(lipgloss.Color("#ffffff")).
 			BorderForeground(lipgloss.Color("#F8FAFC"))
 		valueStyle = valueStyle.Bold(true)
 	}
@@ -600,4 +597,29 @@ func commonIfLonger(candidate string, current string) string {
 		return candidate
 	}
 	return current
+}
+
+func trimLastRune(value string) string {
+	runes := []rune(value)
+	if len(runes) == 0 {
+		return value
+	}
+	return string(runes[:len(runes)-1])
+}
+
+func longestCommonPrefix(values []string) string {
+	if len(values) == 0 {
+		return ""
+	}
+
+	prefix := values[0]
+	for _, value := range values[1:] {
+		for !strings.HasPrefix(value, prefix) && prefix != "" {
+			prefix = prefix[:len(prefix)-1]
+		}
+		if prefix == "" {
+			return ""
+		}
+	}
+	return prefix
 }

@@ -4,6 +4,11 @@ import (
 	"sort"
 
 	tea "charm.land/bubbletea/v2"
+
+	directory_selector "github.com/ishansain/bubbletea-sketches/internal/sketches/directory_selector"
+	flexible_key_value_pair_list "github.com/ishansain/bubbletea-sketches/internal/sketches/flexible_key_value_pair_list"
+	hello_world "github.com/ishansain/bubbletea-sketches/internal/sketches/hello_world"
+	styled_hello_world "github.com/ishansain/bubbletea-sketches/internal/sketches/styled_hello_world"
 )
 
 type Factory func() tea.Model
@@ -11,10 +16,10 @@ type Factory func() tea.Model
 const defaultSketchName = "hello-world"
 
 var registry = map[string]Factory{
-	defaultSketchName:              NewHelloWorld,
-	"directory-selector":           NewDirectorySelector,
-	"flexible-key-value-pair-list": NewFlexibleKeyValuePairList,
-	"styled-hello-world":           NewStyledHelloWorld,
+	defaultSketchName:              hello_world.NewHelloWorld,
+	"directory-selector":           directory_selector.NewDirectorySelector,
+	"flexible-key-value-pair-list": flexible_key_value_pair_list.NewFlexibleKeyValuePairList,
+	"styled-hello-world":           styled_hello_world.NewStyledHelloWorld,
 }
 
 func DefaultName() string {

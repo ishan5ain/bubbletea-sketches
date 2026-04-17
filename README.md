@@ -25,6 +25,7 @@ go run ./cmd/sketchbook hello-world
 
 ## Adding a sketch
 
-1. Add a new model constructor to `internal/sketches`.
-2. Register it in the sketch registry.
-3. Run it through `go run ./cmd/sketchbook <sketch-name>`.
+1. Add a new sketch directory under `internal/sketches/` with the model code and tests.
+2. Export a constructor from that package.
+3. Register the constructor in `internal/sketches/sketches.go`.
+4. Run it through `go run ./cmd/sketchbook <sketch-name>`.
