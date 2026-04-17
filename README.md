@@ -7,7 +7,7 @@ Small Bubble Tea v2 sketches for exploring terminal UI components and interactio
 Run the default sketch:
 
 ```bash
-go run ./cmd/sketchbook
+go run ./sketchbook
 ```
 
 Run a specific sketch:
@@ -28,4 +28,4 @@ go run ./cmd/sketchbook hello-world
 1. Add a new sketch directory under `internal/sketches/` with the model code and tests.
 2. Export a constructor from that package.
 3. Register the constructor in `internal/sketches/sketches.go`.
-4. Run it through `go run ./cmd/sketchbook <sketch-name>`.
+4. Run it through `go run ./sketchbook` or `go run ./cmd/sketchbook <sketch-name>`.

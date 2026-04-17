@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	if err := sketchbookapp.RunLegacy(os.Args[1:], os.Stdin, os.Stdout); err != nil {
+	if err := sketchbookapp.RunBrowser(os.Stdin, os.Stdout); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
